@@ -5,27 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./promedio.css">
+    <title>Promedio_Notas</title>
 </head>
 
 <body>
 
-    <h1>PROMEDIO NOTAS</h1>
+    <header>
+        <h1>PROMEDIO NOTAS</h1>
+    </header>
+   
 
     <section>
-        <form action="">
-        <label for="inputPush">Materia</label>
+        <form action="" id="regForm">
+            <div class="tab"> 
+                <label for="inputPush" class="container-input"><h1>Materia y Nota 1</h1>
         <input type= "text" id="inputMat" placeholder="ingrese el nombre de la materia">
         <input type="number" id="inputNot" placeholder="ingrese nota">
         <input type="number" id="inputPorc" placeholder="ingrese porcentaje de la nota">
-
-        <label for="inputPush2">Materia</label>
+    </label>
+    </div>
+    <div class="tab">
+        <label for="inputPush2" class="container-input"><h1>Materia y Nota 2</h1>
         <input type= "text" id="inputMat2" placeholder="ingrese el nombre de la materia">
         <input type="number" id="inputNot2" placeholder="ingrese nota">
         <input type="number" id="inputPorc2" placeholder="ingrese porcentaje de la nota">
+    </label>
+    </div>
 
-        <button type="reset" onclick="pushObject()">push de objeto</button>
+        <div class="container-button">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          <button type="button" onclick="pushObject()">CALCULAR</button>
+        </div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+        
     </form>
+      
     </section>
 
 </body>
