@@ -2,6 +2,7 @@
 
 function pushObject(){
 
+  console.log("estoy entrando en mi function pushObject");
     //funcion constructura del array de objetos
 function materiasYNotas(materia, note, porcentaje) {
     this.materia = materia;
@@ -16,12 +17,16 @@ function materiasYNotas(materia, note, porcentaje) {
     const noteInputValue = noteInput.value;
     const porcentajeInputValue = Number(porcentajeInput.value);
 
-    const materiaInput2 =  document.getElementById("inputMat2").value;
+    // const materiaInput2 =  document.getElementById("inputMat2").value;
     const noteInput2 =  document.getElementById("inputNot2").value;
     const porcentajeInput2 =  Number(document.getElementById("inputPorc2").value);
+    
+    const noteInput3 =  document.getElementById("inputNot3").value;
+    const porcentajeInput3 =  Number(document.getElementById("inputPorc3").value);
 
     objectPush =  new materiasYNotas(materiaInputValue, noteInputValue, porcentajeInputValue);
-    objectPush2 = new materiasYNotas(materiaInput2, noteInput2, porcentajeInput2);
+    objectPush2 = new materiasYNotas(materiaInputValue, noteInput2, porcentajeInput2);
+    objectPush3 = new materiasYNotas(materiaInputValue, noteInput3, porcentajeInput3);
 
     //   console.log(porcentajeInputValue + porcentajeInput2 );
 
@@ -32,13 +37,26 @@ function materiasYNotas(materia, note, porcentaje) {
 };
 
 
-
-
 function arrayPush(){
     nomMat =[];
     nomMat.push(objectPush);
     nomMat.push(objectPush2);
+    nomMat.push(objectPush3);
     console.log(nomMat);
+
+    //inicio prueba grupos materias
+    let grupoMaterias = {};
+
+    nomMat.forEach(materia => {
+        const nomGrupoMat = nomMat.materia;
+        if (!grupoMaterias[nomGrupoMat]) grupoMaterias[nomGrupoMat] = [];
+        grupoMaterias[nomGrupoMat].push(materia);
+    });
+
+    console.log(`Estos son los arrays formados por grupos de materias ${grupoMaterias}`, grupoMaterias);
+
+
+//fin pruega grupo materias
 
      //Sumando solamente porcentajes
      const porcentajes = nomMat.map(function (nomMatObject) {
@@ -86,6 +104,8 @@ function arrayPush(){
     console.log(
       `Su nota Final es  ${sumaDeNotasPorPorcent} con el ${sumaDePorcentajes}% calificado.`
     );
+
+
   } 
 
 // Cálculo si el porcentaje calificado es menor a 100%
@@ -135,75 +155,37 @@ function arrayPush(){
 
 // js para formulario con diferentes campos
 
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+function add() {
+  var formfield = document.getElementById('notaPorc');
+  var newField = document.createElement('input');
+  newField.setAttribute('type', 'number')
+  newField.setAttribute('name', 'text')
+  newField.setAttribute('class', 'text')
+  newField.setAttribute('id', 'inputNot3')
+  newField.setAttribute('siz', '20')
+  newField.setAttribute('placeholder', 'Ingrese Nota');
+  formfield.appendChild(newField);
 
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").style.display = "none";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
+  var formfield = document.getElementById('notaPorc');
+  var newField = document.createElement('input');
+  newField.setAttribute('type', 'number')
+  newField.setAttribute('name', 'text')
+  newField.setAttribute('class', 'text')
+  newField.setAttribute('id', 'inputPorc3') 
+  newField.setAttribute('siz', '20')
+  newField.setAttribute('placeholder', 'Ingrese Porcentaje');
+  formfield.appendChild(newField);
+
 }
 
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
+function remove() {
+  var formfield = document.getElementById('notaPorc');
+  var input_tags = 
+  formfield.getElementsByTagName('input');
+  if (input_tags.length >2) {
+    formfield.removeChild(input_tags[(input_tags.length) -1]);
+    formfield.removeChild(input_tags[(input_tags.length) -1]);
   }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
+};
 
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
 
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
-}
