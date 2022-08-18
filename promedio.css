@@ -122,3 +122,11 @@ h2 {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+@media (min-width:320px)  { 
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  .container-formulario  {
+      padding-right: 1em;
+      width: 100%;
+      }
