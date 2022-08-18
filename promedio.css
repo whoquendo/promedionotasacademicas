@@ -1,139 +1,68 @@
-/* * {
-    box-sizing: border-box;
-  }
+body {
+
+  background-color: #FDD835;
+  font-family: 'Jost', sans-serif;
+  color: #fff;
+}
+
+  h1 { 
+  text-align: center;
+  font-size: 48px;
+  color: #232c3d;
+
+}
+
+h2 {
+  text-align: center;
+  font-size: 18px;
+  color: #232c3d;
+}
   
-  body {
-    background-color: #f1f1f1;
-  }
-  
-  #regForm {
-    background-color: #ffffff;
-    margin: 100px auto;
-    font-family: Raleway;
-    padding: 40px;
-    width: 70%;
-    min-width: 300px;
-  }
-  
-  header > h1 {
-    text-align: center;  
-    margin-top: 30px;
+  .container-formulario {
+  width: 400px;
+  padding: 10px;
+  margin: 0px auto; 
+  border-radius: 5px; 
+  background: white; 
+  box-shadow: 0px 10px 40px 0px rgba(47,47,47, 1);
   }
 
-  label > h1 {
-    text-align: center;
-  }
-
-  .container-input {
+.labelMat {
     display: flex;
-    flex-direction: column;
-   
+    justify-content: center;
+    font-size: 25px;
+    color: red;
   }
-  
-  input {
+
+  .grid-notas {
+    padding-left: 30px;
+  }
+
+  .grid-notas-porc {
     display: flex;
-    padding: 10px;
-    width: 50%;
-    font-size: 17px;
-    font-family: Raleway;
-    border: 1px solid #aaaaaa;
-    align-self: center;
-  }
-  
-  /* Mark input boxes that gets an error on validation: */
-  /* input.invalid {
-    background-color: #ffdddd;
-  }
-  
-  /* Hide all steps by default: */
-  .tab {
-    display: none;
+   gap: 10px 30px;
+   justify-content: space-around;
+   color: red;
+   padding-top: 16px;
+   margin-bottom: 10px
   }
 
-  .container-button {
-    margin: 40px 0px 0px 330px;
-  }
-  
-  button {  
-    background-color: #04AA6D;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: Raleway;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  #prevBtn {
-    background-color: #bbbbbb;
-  }
-  
-  /* Make circles that indicate the steps of the form:
-  .step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border: none;  
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-  }
-  
-  .step.active {
-    opacity: 1;
-  }
-  
-  /* Mark the steps that are finished and valid: */
-  .step.finish {
-    background-color: #04AA6D;
-  }  */
-
-
-  /*nuevo estilo*/
-
-  
-  body {
-
-    background-color: #c1cce0;
-    font-family: 'Jost', sans-serif;
-    color: #fff;
+  .calculoNotas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
-    h1 { 
-    text-align: center;
-    font-size: 48px;
-    color: #232c3d;
-
+  .btn-calcular {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
-    
-    .container {
-    width: 400px;
-    padding: 10px;
-    margin: 0px auto; 
-    border-radius: 5px; 
-    background: white; 
-    box-shadow: 0px 10px 40px 0px rgba(47,47,47, 1);
-    }
 
-  .labelMat {
-      display: flex;
-      justify-content: center;
-      font-size: 25px ;
-    }
 
-    .labelNotas  {
-      display: flex;
-      justify-content: center;
-      font-size: 15px ;
-      justify-content: space-around;
-    }
 
-    input[type="text"]{
+  input[type="text"]{
     
     margin: 10px auto;
     padding: 10px;
@@ -154,53 +83,6 @@
       flex-wrap: wrap;
     }
     
-    .buttonSubmit {
-    margin: 10px auto;
-    display: block;
-    height: 40px;
-    width: 40%; border: 1px solid;
-    font-size: 18px;
-    border-radius: 25px;
-    cursor: pointer;
-    }
-
-    input[type="Submit"]:hover {
-      background: #2691d9;
-      color: #e9f4fb;
-      transition: .5s;
-    }
-    
-    .controls {
-    width: 294px;
-    margin: 15px auto;
-    }
-    
-    .add {
-    padding: 5px;
-    border: 1px solid;
-    border-radius: 25px;
-    cursor: pointer;
-    }
-    
-    .remove {
-    float: right;
-    padding: 5px;
-    border: 1px solid;
-    border-radius: 25px;
-    cursor: pointer;
-    }
-    
-    .controls button i{
-      margin-right: 5px;
-    }
-    
-    .remove:hover, .add:hover{
-      background: #2691d9;
-      color: #e9f4fb;
-      transition: .5s;
-    }
-
-    /*Estilos de  Modal result*/
 
     /* The Modal (background) */
 .modal {
@@ -219,33 +101,16 @@
 
 /* Modal Content */
 .modal-content {
-  position: relative;
   background-color: #fefefe;
   margin: auto;
-  padding: 0;
+  padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
 }
 
 /* The Close Button */
 .close {
-  color: white;
+  color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -256,18 +121,4 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
 }

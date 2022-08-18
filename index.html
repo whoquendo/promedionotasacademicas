@@ -11,62 +11,54 @@
 
 <body>
 
-    <section>
-      <h1>Promedio de Notas</h1>
-      <div class="container">
-        <form action="" method="POST">
-          <div id="formField">
-            <div class="labelMat"> 
-              <label for="inputMat" >MATERIA</label>
-            </div>
-            <input type="text" name="text" class="text" size="50" id="inputMat" placeholder="Ingrese nombre de la materia" required>
+    <h1>PROMEDIO DE NOTAS ESCOLARES</h1>
 
-            <div class="labelNotas">
-              <label for="inputNot" >NOTAS</label>
-              <label for="inputPorc" >PORCENTAJES</label>
-            </div>
+  <section>
+    <form  class="container-formulario">
 
-            <div class="notaPorc" id="notaPorc" name="notaPorc">
-              <input type="number" name="text" class="text" size="20" id="inputNot" placeholder= "Ingrese nota" required>
-              <input type="number" name="text" class="text" size="20" id="inputPorc" placeholder="Ingrese porcentaje" required>
+        <!-- <div>
+            <label for="inputMat" class="labelMat" >MATERIA</label>
+            <input type="text" id="inputMat" placeholder="Ingrese nombre de la materia" required>
+        </div> -->
 
-              <input type="number" name="text" class="text" size="20" id="inputNot2" placeholder= "Ingrese nota" required>
-              <input type="number" name="text" class="text" size="20" id="inputPorc2" placeholder="Ingrese porcentaje" required>
-          </div>
-          <button type="button" class="buttonSubmit" onclick="pushObject()" id="myBtn">CALCULAR</button>
-        </form>
+        <h2>Ingrese la cantidad de notas que tiene para hacer el cálculo</h2>
 
-        <div class="controls">
-          <button class="add" onclick="add()"><i class="fa fa-plus">Adicionar Nota</i> </button>
-          <button class="remove" onclick="remove()"> <i class="fa fa-minus"></i>Remover Nota</button>
+        <div class="grid-notas">
+            <label for="calculoNumMaterias" id="labelMat">CÚANTAS NOTAS TIENES PARA EL CÁLCULO</label>
+            <input type="number" id="inputcalNumMaterias" placeholder="número de notas. ej: 3">
+
+            <button id="mostrarCamposNotas" class="ingresarnotas">INGRESAR NOTAS</button>
         </div>
-      </div>
-    </section>
 
-    <section>
+        <div class="grid-notas-porc">
 
-      <button id="myBtn">Open Modal</button>
+            <label for="" class="labelMat">NOTAS</label>
+            <label for="" class="labelMat">PORCENTAJE</label>
 
-      <!-- The Modal -->
+        </div>
+
+            <div class="calculoNotas" id="formCalculoNotas">
+
+            </div>
+
+            <div id="div-btn-calcular" class="btn-calcular">
+                <!-- <button type="button" id="btnCalcularDisplay" onclick="pruebaArray()"></button> -->
+            </div>
+
+<!-- The Modal -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
+    <!-- Modal content -->
+    <div class="modal-content">
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+      <h1 id="h1Text"></h1>
     </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
-    </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
-    </div>
+  
   </div>
 
-</div>
-    </section>
+    </form>
+    
+</section>
 
 </body>
 <script src="./promedio.js"></script>
